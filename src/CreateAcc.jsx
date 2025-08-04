@@ -8,7 +8,7 @@ function CreateAcc() {
     const navigate = useNavigate();
 
     const handleSignup = async () => {
-        const res = await fetch('http://localhost:5000/delivery/register', {
+        const res = await fetch('http://daily-drop-backend.onrender.com/delivery/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',

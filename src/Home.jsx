@@ -7,13 +7,13 @@ function Home() {
     const navigate = useNavigate();
 
     const takeOrder = async (cartId) => {
-        await fetch('http://localhost:5000/delivery/take-order', {
+        await fetch('http://daily-drop-backend.onrender.com/delivery/take-order', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
             body: JSON.stringify({ cartId })
         });
-        fetch('http://localhost:5000/delivery/order-sheet', {
+        fetch('http://daily-drop-backend.onrender.com/delivery/order-sheet', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ cartId })
@@ -26,12 +26,12 @@ function Home() {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/delivery/check', { credentials: 'include' })
+        fetch('http://daily-drop-backend.onrender.com/delivery/check', { credentials: 'include' })
             .then(res => res.json())
             .then(data => setName(data.name))
             .catch(() => setName(''));
 
-        fetch('http://localhost:5000/delivery/orders', { credentials: 'include' })
+        fetch('http://daily-drop-backend.onrender.com/delivery/orders', { credentials: 'include' })
             .then(res => res.json())
             .then(data => setOrders(data))
             .catch(console.warn);
