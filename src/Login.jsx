@@ -7,7 +7,7 @@ function Login() {
     const navigate = useNavigate();
 
     const handleLogin = async () => {
-        const res = await fetch('http://daily-drop-backend.onrender.com/delivery/login', {
+        const res = await fetch('https://daily-drop-backend.onrender.com/delivery/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',

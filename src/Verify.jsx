@@ -9,7 +9,7 @@ function Verify() {
     const navigate = useNavigate();
 
     const sendOtp = async () => {
-        const res = await fetch('http://daily-drop-backend.onrender.com/delivery/send-otp', {
+        const res = await fetch('https://daily-drop-backend.onrender.com/delivery/send-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -25,7 +25,7 @@ function Verify() {
     };
 
     const verifyOtp = async () => {
-        const res = await fetch('http://daily-drop-backend.onrender.com/delivery/verify-otp', {
+        const res = await fetch('https://daily-drop-backend.onrender.com/delivery/verify-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -33,7 +33,7 @@ function Verify() {
         });
         const data = await res.json();
         if (data.success) {
-            await fetch('http://daily-drop-backend.onrender.com/delivery/success_delivery', {
+            await fetch('https://daily-drop-backend.onrender.com/delivery/success_delivery', {
                 method: 'POST',
                 credentials: 'include'
             });
