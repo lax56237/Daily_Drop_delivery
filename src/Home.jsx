@@ -7,13 +7,13 @@ function Home() {
     const navigate = useNavigate();
 
     const takeOrder = async (cartId) => {
-        await fetch('https://daily-drop-backend.onrender.com/delivery/take-order', {
+        await fetch('https://dailydropbackend-production.up.railway.app/delivery/take-order', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
             body: JSON.stringify({ cartId })
         });
-        fetch('https://daily-drop-backend.onrender.com/delivery/order-sheet', {
+        fetch('https://dailydropbackend-production.up.railway.app/delivery/order-sheet', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ cartId })
@@ -26,12 +26,12 @@ function Home() {
     };
 
     useEffect(() => {
-        fetch('https://daily-drop-backend.onrender.com/delivery/check', { credentials: 'include' })
+        fetch('https://dailydropbackend-production.up.railway.app/delivery/check', { credentials: 'include' })
             .then(res => res.json())
             .then(data => setName(data.name))
             .catch(() => setName(''));
 
-        fetch('https://daily-drop-backend.onrender.com/delivery/orders', { credentials: 'include' })
+        fetch('https://dailydropbackend-production.up.railway.app/delivery/orders', { credentials: 'include' })
             .then(res => res.json())
             .then(data => setOrders(data))
             .catch(console.warn);
